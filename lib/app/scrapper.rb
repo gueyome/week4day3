@@ -86,9 +86,9 @@ class Scrapper
   end
 
   def save_as_csv
-    @hash.each do |hash|
-      CSV.open("email.csv", "w") do |csv|
-        csv << hash.values
+    CSV.open("db/email.csv", "wb") do |csv|
+      @hash.each do |hash|
+        csv << [hash.keys[0], hash.values[0]] 
       end
     end
   end
